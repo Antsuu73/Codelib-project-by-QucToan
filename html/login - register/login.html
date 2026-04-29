@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Codelib • Đăng nhập</title>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+  <link href="../css/auth.css" rel="stylesheet" />
+  <link href="../css/login.css" rel="stylesheet" />
+</head>
+<body class="codelib-auth">
+  <div class="codelib-bg" aria-hidden="true">
+    <div class="codelib-orb codelib-orb--1"></div>
+    <div class="codelib-orb codelib-orb--2"></div>
+    <div class="codelib-grid"></div>
+  </div>
+
+  <main class="container py-4 py-md-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10 col-xl-9">
+        <div class="card codelib-card border-0 overflow-hidden shadow-lg animate__animated animate__fadeInUp animate__faster">
+          <div class="row g-0">
+            <aside class="col-12 col-lg-5 codelib-side p-4 p-md-5">
+              <a class="codelib-brand d-inline-flex align-items-center gap-2 text-decoration-none" href="./login.html" aria-label="Codelib">
+                <span class="codelib-logo">
+                  <img src="../img/logo-removebg-preview.png" alt="Codelib logo">
+                </span>
+                <span class="fw-bold">Codelib</span>
+              </a>
+
+              <h1 class="h3 fw-bold mt-4 mb-2">Đăng nhập để tiếp tục học</h1>
+              <p class="text-white-50 mb-4">Luyện thuật toán, theo dõi tiến độ, giữ streak mỗi ngày.</p>
+
+              <ul class="list-unstyled d-grid gap-3 mb-4">
+                <li class="d-flex gap-3">
+                  <span class="codelib-bullet"><i class="fa-solid fa-bolt"></i></span>
+                  <div>
+                    <div class="fw-semibold">Gợi ý lộ trình</div>
+                    <div class="text-white-50 small">DSA theo mức độ, không lan man.</div>
+                  </div>
+                </li>
+                <li class="d-flex gap-3">
+                  <span class="codelib-bullet"><i class="fa-solid fa-chart-line"></i></span>
+                  <div>
+                    <div class="fw-semibold">Thống kê rõ ràng</div>
+                    <div class="text-white-50 small">Bài đã giải, thời gian, độ khó.</div>
+                  </div>
+                </li>
+                <li class="d-flex gap-3">
+                  <span class="codelib-bullet"><i class="fa-solid fa-shield-halved"></i></span>
+                  <div>
+                    <div class="fw-semibold">Trải nghiệm tin cậy</div>
+                    <div class="text-white-50 small">UI nhẹ, animation vừa đủ.</div>
+                  </div>
+                </li>
+              </ul>
+
+              <div class="codelib-mini-stat d-flex align-items-center justify-content-between">
+                <span class="text-white-50 small"><i class="fa-solid fa-fire me-2"></i>Streak mẫu</span>
+                <span class="fw-semibold">7 ngày</span>
+              </div>
+            </aside>
+
+            <section class="col-12 col-lg-7 p-4 p-md-5">
+              <header class="d-flex align-items-center justify-content-between gap-2 mb-4">
+                <div>
+                  <div class="text-secondary small">Chào mừng trở lại</div>
+                  <div class="h4 mb-0 fw-bold">Đăng nhập</div>
+                </div>
+                <a class="btn btn-sm btn-outline-secondary" href="./register.html">
+                  <i class="fa-solid fa-user-plus me-2"></i>Tạo tài khoản
+                </a>
+              </header>
+
+              <div class="d-grid gap-2 mb-4">
+                <button type="button" class="btn btn-outline-dark codelib-social" data-toast="demo">
+                  <i class="fa-brands fa-google me-2"></i>Tiếp tục với Google
+                </button>
+                <button type="button" class="btn btn-outline-dark codelib-social" data-toast="demo">
+                  <i class="fa-brands fa-github me-2"></i>Tiếp tục với GitHub
+                </button>
+              </div>
+
+              <div class="codelib-divider my-4">
+                <span>hoặc</span>
+              </div>
+
+              <form id="loginForm" class="needs-validation" novalidate>
+                <div class="mb-3">
+                  <label class="form-label">Email</label>
+                  <div class="input-group codelib-input">
+                    <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
+                    <input name="email" type="email" class="form-control" placeholder="you@codelib.dev" autocomplete="email" required>
+                    <div class="invalid-feedback">Vui lòng nhập email hợp lệ.</div>
+                  </div>
+                </div>
+
+                <div class="mb-2">
+                  <label class="form-label">Mật khẩu</label>
+                  <div class="input-group codelib-input">
+                    <span class="input-group-text"><i class="fa-solid fa-key"></i></span>
+                    <input name="password" type="password" class="form-control" placeholder="••••••••" autocomplete="current-password" minlength="6" required>
+                    <button class="btn btn-outline-secondary" type="button" data-toggle-password aria-label="Hiện/ẩn mật khẩu">
+                      <i class="fa-regular fa-eye"></i>
+                    </button>
+                    <div class="invalid-feedback">Mật khẩu tối thiểu 6 ký tự.</div>
+                  </div>
+                </div>
+
+                <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mt-3 mb-4">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="rememberMe">
+                    <label class="form-check-label" for="rememberMe">Ghi nhớ</label>
+                  </div>
+                  <a class="link-secondary text-decoration-none" href="#" data-toast="demo">
+                    <i class="fa-solid fa-life-ring me-1"></i>Quên mật khẩu?
+                  </a>
+                </div>
+
+                <button class="btn btn-primary w-100 codelib-btn" type="submit">
+                  <i class="fa-solid fa-right-to-bracket me-2"></i>Đăng nhập
+                </button>
+
+                <p class="text-center text-secondary small mt-3 mb-0">
+                  Chưa có tài khoản? <a href="./register.html" class="codelib-link">Tạo ngay</a>
+                </p>
+              </form>
+
+              <footer class="d-flex flex-wrap align-items-center justify-content-between gap-2 mt-4 pt-3 border-top">
+                <div class="small text-secondary">
+                  <i class="fa-solid fa-bolt me-1"></i>Bootstrap 5 • Animate.css • Font Awesome
+                </div>
+                <div class="small text-secondary">© <span id="year"></span> Codelib</div>
+              </footer>
+            </section>
+          </div>
+        </div>
+
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+          <div id="demoToast" class="toast" role="status" aria-live="polite" aria-atomic="true">
+            <div class="toast-header">
+              <strong class="me-auto">Codelib</strong>
+              <small class="text-secondary">demo</small>
+              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">Chức năng demo (chưa có backend).</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/auth.js"></script>
+</body>
+</html>

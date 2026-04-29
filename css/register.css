@@ -1,0 +1,117 @@
+/* Register page: balanced styling with soft animation */
+.codelib-card{
+  animation: register-card-in .58s ease both;
+}
+
+.codelib-chip{
+  transition: transform .22s ease, background-color .22s ease, border-color .22s ease;
+}
+
+.codelib-chip:hover{
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.14);
+  border-color: rgba(255,255,255,.26);
+}
+
+#registerForm .row.g-3 > div,
+#registerForm > .mt-3,
+#registerForm > .row.g-3.mt-0,
+#registerForm > .mt-3.d-flex,
+#registerForm > .codelib-btn,
+#registerForm > p{
+  animation: register-item-in .46s ease both;
+}
+
+#registerForm .row.g-3 > div:first-child{ animation-delay: .03s; }
+#registerForm .row.g-3 > div:last-child{ animation-delay: .07s; }
+#registerForm > .mt-3{ animation-delay: .11s; }
+#registerForm > .row.g-3.mt-0{ animation-delay: .15s; }
+#registerForm > .mt-3.d-flex{ animation-delay: .19s; }
+#registerForm > .codelib-btn{ animation-delay: .24s; }
+#registerForm > p{ animation-delay: .28s; }
+
+.codelib-input .input-group-text i{
+  width: 1.1rem;
+  text-align: center;
+}
+
+.codelib-input .input-group-text,
+.codelib-input .form-control,
+.codelib-input .btn{
+  transition: border-color .22s ease, box-shadow .22s ease, background-color .22s ease;
+}
+
+.codelib-input:focus-within .input-group-text{
+  background: rgba(79,70,229,.08);
+  color: #4338ca;
+}
+
+.codelib-input:focus-within .btn{
+  border-color: rgba(79,70,229,.45);
+}
+
+.codelib-btn{
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+
+.codelib-btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 20px 38px rgba(79,70,229,.33);
+}
+
+.form-check-input:checked{
+  background-color: #4f46e5;
+  border-color: #4f46e5;
+}
+
+.form-check-input:focus{
+  box-shadow: 0 0 0 .25rem rgba(79,70,229,.16);
+}
+
+@keyframes register-card-in{
+  from{
+    opacity: 0;
+    transform: translateY(11px) scale(.992);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes register-item-in{
+  from{
+    opacity: 0;
+    transform: translateY(7px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 767.98px){
+  .codelib-chip{
+    padding: .65rem .8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .codelib-card,
+  #registerForm .row.g-3 > div,
+  #registerForm > .mt-3,
+  #registerForm > .row.g-3.mt-0,
+  #registerForm > .mt-3.d-flex,
+  #registerForm > .codelib-btn,
+  #registerForm > p{
+    animation: none !important;
+  }
+
+  .codelib-chip,
+  .codelib-input .input-group-text,
+  .codelib-input .form-control,
+  .codelib-input .btn,
+  .codelib-btn{
+    transition: none !important;
+  }
+}

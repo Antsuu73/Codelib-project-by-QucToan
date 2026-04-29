@@ -1,0 +1,136 @@
+/* Login page: clean visual polish with subtle motion */
+.codelib-card{
+  animation: login-card-in .55s ease both;
+}
+
+.codelib-side{
+  position: relative;
+  overflow: hidden;
+}
+
+.codelib-side::before{
+  content: "";
+  position: absolute;
+  inset: auto -20% -30% auto;
+  width: 220px;
+  height: 220px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.24), rgba(255,255,255,0) 65%);
+  pointer-events: none;
+  animation: login-float 8s ease-in-out infinite;
+}
+
+.codelib-social{
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+
+.codelib-social:hover{
+  transform: translateY(-2px);
+  border-color: rgba(79,70,229,.35);
+  box-shadow: 0 10px 24px rgba(15,23,42,.10);
+}
+
+.codelib-social i{
+  width: 1.2rem;
+  text-align: center;
+}
+
+.codelib-input .input-group-text,
+.codelib-input .form-control,
+.codelib-input .btn{
+  transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.codelib-input:focus-within .input-group-text{
+  background: rgba(79,70,229,.08);
+  color: #4338ca;
+}
+
+.codelib-input:focus-within .form-control{
+  transform: translateY(-1px);
+}
+
+.codelib-btn{
+  transition: transform .22s ease, box-shadow .22s ease, filter .22s ease;
+}
+
+.codelib-btn:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.02);
+  box-shadow: 0 20px 36px rgba(79,70,229,.34);
+}
+
+.codelib-btn:active{
+  transform: translateY(0);
+}
+
+#loginForm > .mb-3,
+#loginForm > .mb-2,
+#loginForm > .d-flex,
+#loginForm > .codelib-btn,
+#loginForm > p{
+  animation: login-item-in .45s ease both;
+}
+
+#loginForm > .mb-3{ animation-delay: .03s; }
+#loginForm > .mb-2{ animation-delay: .09s; }
+#loginForm > .d-flex{ animation-delay: .14s; }
+#loginForm > .codelib-btn{ animation-delay: .19s; }
+#loginForm > p{ animation-delay: .24s; }
+
+@keyframes login-card-in{
+  from{
+    opacity: 0;
+    transform: translateY(10px) scale(.992);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes login-item-in{
+  from{
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes login-float{
+  0%, 100%{
+    transform: translate3d(0,0,0);
+  }
+  50%{
+    transform: translate3d(-10px,-10px,0);
+  }
+}
+
+@media (max-width: 991.98px){
+  .codelib-card{
+    border-radius: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .codelib-card,
+  .codelib-side::before,
+  #loginForm > .mb-3,
+  #loginForm > .mb-2,
+  #loginForm > .d-flex,
+  #loginForm > .codelib-btn,
+  #loginForm > p{
+    animation: none !important;
+  }
+
+  .codelib-social,
+  .codelib-input .input-group-text,
+  .codelib-input .form-control,
+  .codelib-input .btn,
+  .codelib-btn{
+    transition: none !important;
+  }
+}

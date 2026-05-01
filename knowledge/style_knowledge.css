@@ -545,75 +545,87 @@ html, body {
 }
 
 /* --- Code block --- */
-.kl-code-wrap {
-  border-radius: 14px;
-  overflow: hidden;
+.kl-code-block {
+  border-radius: 12px;
+  overflow: visible;
   border: 1px solid var(--border);
   margin: 1rem 0 1.5rem;
-}
-.kl-code-header {
+  background: rgba(2, 6, 23, .42);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: .55rem .85rem;
-  background: rgba(2, 6, 23, .55);
-  border-bottom: 1px solid var(--border);
-}
-.kl-code-header .kl-dots {
-  display: flex;
-  gap: .35rem;
-}
-.kl-code-header .kl-dot-red {
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background: #f87171;
-}
-.kl-code-header .kl-dot-yellow {
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background: #fbbf24;
-}
-.kl-code-header .kl-dot-green {
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background: var(--good);
-}
-.kl-code-filename {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: .75rem;
-  color: var(--muted);
-}
-.kl-code-copy {
-  font-size: .72rem;
-  padding: .2rem .55rem;
-  border-radius: 6px;
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--muted);
-  cursor: pointer;
-  transition: all .15s;
-}
-.kl-code-copy:hover {
-  background: rgba(148, 163, 184, .08);
-  color: var(--text);
-}
-.kl-code-copy.copied {
-  border-color: rgba(52, 211, 153, .30);
-  color: var(--good);
+  flex-direction: column;
+  position: relative;
 }
 
-pre.kl-pre {
+/* macOS-style header */
+.kl-code-block::before {
+  content: '';
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  background: linear-gradient(90deg, rgba(2, 6, 23, .65) 0%, rgba(2, 6, 23, .55) 100%);
+  border-bottom: 1px solid var(--border);
+  border-radius: 12px 12px 0 0;
+  padding-left: 12px;
+  order: -1;
+  flex-shrink: 0;
+}
+
+/* macOS-style dots */
+.kl-code-block::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ff5f57;
+  box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #28ca42;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.kl-code-block pre {
   margin: 0;
   padding: 1.1rem;
-  background: rgba(2, 6, 23, .42);
+  background: transparent;
   overflow-x: auto;
   font-size: .82rem;
   line-height: 1.7;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
   color: var(--text);
+  position: relative;
+  border-radius: 0 0 12px 12px;
+  order: 1;
+}
+
+/* Syntax highlighting cho code blocks */
+.kl-code-block pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+/* Enhanced syntax highlighting */
+.tok-kw   { color: #c084fc; font-weight: 600; }
+.tok-fn   { color: #60a5fa; }
+.tok-str  { color: #86efac; }
+.tok-num  { color: #fbbf24; }
+.tok-cmt  { color: rgba(148,163,184,.60); font-style: italic; }
+.tok-pp   { color: #f9a8d4; }
+.tok-type { color: #67e8f9; }
+.tok-var  { color: #fca5a5; }
+.tok-op   { color: #e879f9; }
+
+/* Hover effect */
+.kl-code-block:hover {
+  border-color: rgba(79, 70, 229, .30);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .25);
 }
 
 /* --- Syntax highlight tokens (giữ nguyên bộ màu chuyên biệt cho code) --- */

@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Codelib • Trang chính</title>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+  <link href="./style_main.css" rel="stylesheet" />
+</head>
+<body class="codelib-main">
+  <div class="codelib-bg" aria-hidden="true">
+    <div class="codelib-orb codelib-orb--1"></div>
+    <div class="codelib-orb codelib-orb--2"></div>
+    <div class="codelib-grid"></div>
+  </div>
+
+  <header class="codelib-topbar border-bottom border-secondary-subtle">
+    <div class="container-fluid px-3 px-md-4">
+      <div class="d-flex align-items-center justify-content-between gap-3 py-3">
+        <div class="d-flex align-items-center gap-3">
+          <a class="codelib-brand d-inline-flex align-items-center gap-2 text-decoration-none" href="../Login and register/html/login.html" aria-label="Codelib">
+            <span class="codelib-logo">
+              <img src="../img/logo-removebg-preview.png" alt="Codelib logo">
+            </span>
+            <span class="fw-bold">Codelib</span>
+          </a>
+
+          <nav class="d-none d-md-flex align-items-center gap-2">
+            <a class="codelib-nav active" href="#" aria-current="page">Home</a>
+            <a class="codelib-nav" href="../knowledge/knowledge.html">Kiến thức</a>
+            <a class="codelib-nav" href="#" data-toast="demo">Bài tập</a>
+            <a class="codelib-nav" href="#" data-toast="demo">Kiểm tra</a>
+          </nav>
+        </div>
+
+        <div class="d-flex align-items-center gap-2">
+          <button class="btn btn-sm btn-outline-light codelib-icon-btn" type="button" data-toast="demo" aria-label="Khóa">
+            <i class="fa-solid fa-lock"></i>
+          </button>
+          <button class="btn btn-sm btn-outline-light codelib-icon-btn" type="button" id="logoutBtn" aria-label="Đăng xuất">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </button>
+
+          <div class="codelib-avatar" role="button" tabindex="0" data-toast="demo" aria-label="Tài khoản">
+            <span id="avatarText">A</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container-fluid px-3 px-md-4 py-4">
+    <div class="row g-4">
+      <section class="col-12 col-xl-5">
+        <div class="codelib-panel p-4 h-100">
+          <div class="d-flex align-items-center gap-3">
+            <div class="codelib-userpic">
+              <i class="fa-regular fa-user"></i>
+            </div>
+            <div>
+              <div class="h5 mb-0 fw-bold" id="displayName">Bạn học</div>
+              <div class="text-secondary small" id="roleText">Học viên</div>
+            </div>
+          </div>
+
+          <hr class="border-secondary-subtle my-4" />
+
+          <div class="text-secondary small mb-2">Ngôn ngữ đã chọn</div>
+          <div class="codelib-select d-flex align-items-center justify-content-between gap-2">
+            <div class="d-flex align-items-center gap-2">
+              <span class="codelib-lang-icon"><i class="fa-solid fa-code"></i></span>
+              <span id="langText">Tuỳ chọn ngôn ngữ</span>
+            </div>
+            <button class="btn btn-sm btn-outline-light" type="button" id="openLangBtn">Đổi</button>
+          </div>
+
+          <div class="row g-3 mt-3">
+            <div class="col-12 col-md-6">
+              <div class="codelib-metric p-3">
+                <div class="text-secondary small mb-1">Các bài đã làm</div>
+                <div class="d-flex align-items-end justify-content-between gap-2">
+                  <div class="display-6 fw-bold lh-1" id="solvedCount">0</div>
+                  <div class="text-secondary small">/ <span id="targetCount">500</span> bài</div>
+                </div>
+                <div class="progress codelib-progress mt-3" role="progressbar" aria-label="progress">
+                  <div class="progress-bar" id="solvedProgress" style="width: 0%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="codelib-metric p-3">
+                <div class="text-secondary small mb-1">Thanh điểm problem</div>
+                <div class="d-flex align-items-end justify-content-between gap-2">
+                  <div class="h3 fw-bold mb-0" id="scoreText">0</div>
+                  <div class="text-secondary small">pts</div>
+                </div>
+                <div class="text-secondary small mt-2" id="rankText">Hạng: đang cập nhật</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="codelib-metric p-3 mt-3">
+            <div class="d-flex align-items-start justify-content-between gap-3">
+              <div>
+                <div class="text-secondary small mb-1">Tiến trình học</div>
+                <div class="d-flex align-items-end gap-2">
+                  <div class="h3 fw-bold mb-0"><span id="learnPct">0</span>%</div>
+                  <div class="text-secondary small" id="learnMeta">0/0 chủ đề</div>
+                </div>
+              </div>
+              <button class="btn btn-sm btn-outline-light" type="button" id="completeTopicBtn">
+                <i class="fa-solid fa-check me-2"></i>Hoàn thành 1 chủ đề
+              </button>
+            </div>
+            <div class="progress codelib-progress mt-3" role="progressbar" aria-label="learning progress">
+              <div class="progress-bar" id="learnProgress" style="width: 0%"></div>
+            </div>
+            <div class="form-text text-secondary mt-2">Mỗi lần hoàn thành sẽ lưu vào localStorage và tính vào streak hôm nay.</div>
+          </div>
+
+          <div class="codelib-recent mt-4">
+            <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
+              <div class="fw-semibold">Bài tập gần đây</div>
+              <div class="d-flex align-items-center gap-2">
+                <button class="btn btn-sm btn-outline-light" type="button" id="openAddSolveBtn">
+                  <i class="fa-solid fa-plus me-2"></i>Thêm bài
+                </button>
+                <button class="btn btn-sm btn-outline-light" type="button" id="openAllBtn">
+                  Xem tất cả
+                </button>
+              </div>
+            </div>
+            <div class="d-grid gap-2" id="recentList"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="col-12 col-xl-7">
+        <div class="codelib-panel p-4 h-100">
+          <div class="d-flex align-items-start justify-content-between gap-3 flex-wrap">
+            <div>
+              <div class="h4 fw-bold mb-1">Hoạt động</div>
+              <div class="text-secondary small">Số ngày truy cập</div>
+            </div>
+            <div class="codelib-streak d-inline-flex align-items-center gap-2">
+              <i class="fa-solid fa-fire"></i>
+              <span class="fw-semibold" id="streakText">0 Ngày lửa</span>
+            </div>
+          </div>
+
+          <div class="codelib-heatmap mt-3" aria-label="heatmap" id="heatmap"></div>
+
+          <div class="row g-3 mt-2">
+            <div class="col-12 col-md-6">
+              <div class="codelib-mini p-3">
+                <div class="text-secondary small mb-1">Chuỗi dài nhất</div>
+                <div class="h3 fw-bold mb-0" id="bestStreakText">0 Ngày</div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="codelib-mini p-3">
+                <div class="text-secondary small mb-1">Tỉ lệ chính xác</div>
+                <div class="h3 fw-bold mb-0"><span id="accuracyText">0</span>%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div id="demoToast" class="toast" role="status" aria-live="polite" aria-atomic="true">
+        <div class="toast-header">
+          <strong class="me-auto">Codelib</strong>
+          <small class="text-secondary">demo</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">Chức năng demo (chưa có backend).</div>
+      </div>
+    </div>
+
+    <!-- Add solve modal -->
+    <div class="modal fade" id="solveModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content codelib-modal">
+          <div class="modal-header border-secondary-subtle">
+            <h5 class="modal-title fw-bold">Thêm bài đã làm</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form class="modal-body" id="solveForm">
+            <div class="mb-3">
+              <label class="form-label">Tên bài</label>
+              <input class="form-control codelib-input-dark" name="title" placeholder="VD: Two Sum" required minlength="2" />
+              <div class="form-text text-secondary">Gõ tên bài bạn vừa giải/luyện.</div>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-6">
+                <label class="form-label">Ngôn ngữ</label>
+                <select class="form-select codelib-input-dark" name="lang" required>
+                  <option value="C++">C++</option>
+                  <option value="Python">Python</option>
+                  <option value="Java">Java</option>
+                  <option value="JavaScript">JavaScript</option>
+                </select>
+              </div>
+              <div class="col-6">
+                <label class="form-label">Độ khó</label>
+                <select class="form-select codelib-input-dark" name="difficulty" required>
+                  <option value="Easy">Easy</option>
+                  <option value="Medium" selected>Medium</option>
+                  <option value="Hard">Hard</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row g-3 mt-0">
+              <div class="col-6">
+                <label class="form-label">Kết quả</label>
+                <select class="form-select codelib-input-dark" name="status" required>
+                  <option value="AC" selected>AC (đúng)</option>
+                  <option value="WA">WA (sai)</option>
+                </select>
+              </div>
+              <div class="col-6">
+                <label class="form-label">Ngày</label>
+                <input class="form-control codelib-input-dark" name="date" type="date" required />
+              </div>
+            </div>
+          </form>
+          <div class="modal-footer border-secondary-subtle">
+            <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Hủy</button>
+            <button type="submit" form="solveForm" class="btn btn-primary codelib-btn-solid">
+              <i class="fa-solid fa-check me-2"></i>Lưu
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Language modal -->
+    <div class="modal fade" id="langModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content codelib-modal">
+          <div class="modal-header border-secondary-subtle">
+            <h5 class="modal-title fw-bold">Chọn ngôn ngữ</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="d-grid gap-2" id="langChoices"></div>
+            <div class="form-text text-secondary mt-2">Chọn 1 ngôn ngữ chính để hiển thị trên dashboard.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./app1.js"></script>
+</body>
+</html>
+

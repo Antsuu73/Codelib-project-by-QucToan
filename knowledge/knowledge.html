@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Codelib • Kiến thức</title>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link href="./style_knowledge.css" rel="stylesheet" />
+</head>
+<body class="codelib-main">
+  <!-- Background effects (giống dashboard) -->
+  <div class="codelib-bg" aria-hidden="true">
+    <div class="codelib-orb codelib-orb--1"></div>
+    <div class="codelib-orb codelib-orb--2"></div>
+    <div class="codelib-grid"></div>
+  </div>
+
+  <!-- TOPBAR (đồng bộ với Dashboard) -->
+  <header class="codelib-topbar border-bottom border-secondary-subtle">
+    <div class="container-fluid px-3 px-md-4">
+      <div class="d-flex align-items-center justify-content-between gap-3 py-3">
+        <div class="d-flex align-items-center gap-3">
+          <a class="codelib-brand d-inline-flex align-items-center gap-2 text-decoration-none" href="../main/main.html" aria-label="Codelib">
+            <span class="codelib-logo">
+              <img src="../img/logo-removebg-preview.png" alt="Codelib logo">
+            </span>
+            <span class="fw-bold">Codelib</span>
+          </a>
+          <nav class="d-none d-md-flex align-items-center gap-2">
+            <a class="codelib-nav" href="../main/main.html">Home</a>
+            <a class="codelib-nav active" href="#" aria-current="page">Kiến thức</a>
+            <a class="codelib-nav" href="#" data-toast="demo">Bài tập</a>
+            <a class="codelib-nav" href="#" data-toast="demo">Kiểm tra</a>
+          </nav>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <button class="btn btn-sm btn-outline-light codelib-icon-btn" type="button" data-toast="demo" aria-label="Khóa">
+            <i class="fa-solid fa-lock"></i>
+          </button>
+          <button class="btn btn-sm btn-outline-light codelib-icon-btn" type="button" id="logoutBtn" aria-label="Đăng xuất">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </button>
+          <div class="codelib-avatar" role="button" tabindex="0" data-toast="demo" aria-label="Tài khoản">
+            <span id="avatarText">A</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- LANG TABS -->
+  <div class="kl-lang-bar border-bottom border-secondary-subtle">
+    <div class="container-fluid px-3 px-md-4">
+      <div class="d-flex align-items-center gap-2 py-2">
+        <button class="kl-lang-tab active" data-lang="cpp">
+          <i class="fa-solid fa-c me-1"></i>C++
+        </button>
+        <button class="kl-lang-tab" data-lang="python">
+          <i class="fa-brands fa-python me-1"></i>Python
+        </button>
+        <button class="kl-lang-tab" data-lang="pascal">
+          <i class="fa-solid fa-p me-1"></i>Pascal
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN LAYOUT -->
+  <div class="kl-layout container-fluid px-0">
+    <!-- SIDEBAR -->
+    <aside class="kl-sidebar" id="sidebar">
+      <div class="kl-mastery-bar p-3">
+        <div class="text-secondary small mb-1 text-uppercase" style="letter-spacing:.08em;font-size:.7rem;">MASTERY PROGRESS</div>
+        <div class="fw-bold mb-2" id="masteryTitle">C++ Fundamentals</div>
+        <div class="d-flex align-items-center gap-2">
+          <div class="progress codelib-progress flex-grow-1" style="height:6px;">
+            <div class="progress-bar" id="masteryBar" style="width:0%"></div>
+          </div>
+          <span class="small fw-bold" id="masteryPct">0%</span>
+        </div>
+      </div>
+      <div class="kl-sidebar-nav" id="sidebarNav"></div>
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="kl-content px-3 px-md-5 py-4" id="contentArea">
+      <!-- rendered by JS -->
+    </main>
+  </div>
+
+  <!-- TOAST DEMO (giống dashboard) -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="demoToast" class="toast" role="status" aria-live="polite" aria-atomic="true">
+      <div class="toast-header">
+        <strong class="me-auto">Codelib</strong>
+        <small class="text-secondary">demo</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">Chức năng demo (chưa có backend).</div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./app_knowledge1.js"></script>
+</body>
+</html>
